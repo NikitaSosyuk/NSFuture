@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// Функция, позволяющий создать `NSFuture` из асинхронного замыкания.
+/// - Parameters:
+///   - task: Замыкание создающее `NSFuture`.
 public func all<T, U>(_ f1: NSFuture<T>, _ f2: NSFuture<U>) -> NSFuture<(T, U)> {
     let (future, callback) = NSFuture<(T, U)>.create()
     f1.resolved { p1 in
