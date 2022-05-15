@@ -1,0 +1,8 @@
+# platform :ios, '9.0'
+
+target 'NSFutureDemo' do
+  use_frameworks!
+
+  pod 'NSFuture', :git => "git@github.com:NikitaSosyuk/NSFuture", :branch => "main"
+
+end
