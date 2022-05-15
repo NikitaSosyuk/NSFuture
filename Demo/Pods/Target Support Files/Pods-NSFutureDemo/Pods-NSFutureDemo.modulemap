@@ -1,0 +1,6 @@
+framework module Pods_NSFutureDemo {
+  umbrella header "Pods-NSFutureDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

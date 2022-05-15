@@ -1,0 +1,16 @@
+PODS:
+  - NSFuture (1.0.0)
+
+DEPENDENCIES:
+  - NSFuture (from `../`)
+
+EXTERNAL SOURCES:
+  NSFuture:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NSFuture: 44746e477d4dd961789e4f5b06d897efa22fcc61
+
+PODFILE CHECKSUM: 67c78e4753ac5decf32d57e1e6f8a90b34bb356b
+
+COCOAPODS: 1.11.3

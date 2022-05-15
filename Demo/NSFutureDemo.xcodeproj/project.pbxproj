@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38B496F83A2B08912668999E /* Pods_NSFutureDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C795684E5C2652315FCAA1F /* Pods_NSFutureDemo.framework */; };
 		3C668E66283148FF003DB2FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C668E65283148FF003DB2FA /* AppDelegate.swift */; };
 		3C668E68283148FF003DB2FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C668E67283148FF003DB2FA /* SceneDelegate.swift */; };
 		3C668E6A283148FF003DB2FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C668E69283148FF003DB2FA /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C795684E5C2652315FCAA1F /* Pods_NSFutureDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NSFutureDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C668E62283148FF003DB2FA /* NSFutureDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSFutureDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C668E65283148FF003DB2FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C668E67283148FF003DB2FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		3C668E6E28314900003DB2FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C668E7128314900003DB2FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C668E7328314900003DB2FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B9933A7621D4F40B7C8E6CC /* Pods-NSFutureDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSFutureDemo.release.xcconfig"; path = "Target Support Files/Pods-NSFutureDemo/Pods-NSFutureDemo.release.xcconfig"; sourceTree = "<group>"; };
+		623AC178929334345ECE2A2D /* Pods-NSFutureDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSFutureDemo.debug.xcconfig"; path = "Target Support Files/Pods-NSFutureDemo/Pods-NSFutureDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B496F83A2B08912668999E /* Pods_NSFutureDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17F4EDC9B33F82EBDC435501 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C795684E5C2652315FCAA1F /* Pods_NSFutureDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3C668E59283148FF003DB2FA = {
 			isa = PBXGroup;
 			children = (
 				3C668E64283148FF003DB2FA /* NSFutureDemo */,
 				3C668E63283148FF003DB2FA /* Products */,
+				C96CCFA7C1F0C018E4AE1DEC /* Pods */,
+				17F4EDC9B33F82EBDC435501 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = NSFutureDemo;
 			sourceTree = "<group>";
 		};
+		C96CCFA7C1F0C018E4AE1DEC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				623AC178929334345ECE2A2D /* Pods-NSFutureDemo.debug.xcconfig */,
+				5B9933A7621D4F40B7C8E6CC /* Pods-NSFutureDemo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +99,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C668E7628314900003DB2FA /* Build configuration list for PBXNativeTarget "NSFutureDemo" */;
 			buildPhases = (
+				2E865066B206E8B3509F23BD /* [CP] Check Pods Manifest.lock */,
 				3C668E5E283148FF003DB2FA /* Sources */,
 				3C668E5F283148FF003DB2FA /* Frameworks */,
 				3C668E60283148FF003DB2FA /* Resources */,
@@ -132,6 +158,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E865066B206E8B3509F23BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NSFutureDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C668E5E283148FF003DB2FA /* Sources */ = {
@@ -284,6 +335,7 @@
 		};
 		3C668E7728314900003DB2FA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 623AC178929334345ECE2A2D /* Pods-NSFutureDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +363,7 @@
 		};
 		3C668E7828314900003DB2FA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B9933A7621D4F40B7C8E6CC /* Pods-NSFutureDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

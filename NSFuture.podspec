@@ -1,8 +1,3 @@
-#
-#  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
-#
-
 Pod::Spec.new do |s|
   
   s.name         = "NSFuture"
@@ -29,15 +24,7 @@ Pod::Spec.new do |s|
   
   s.source       = { :git => "git@github.com:NikitaSosyuk/NSFuture", :tag => "#{s.version}" }
   
-  s.source_files = "Source/**/*"
-
-  s.script_phases = [
-  {
-    :name => 'SwiftGen',
-    :execution_position => :before_compile,
-    :script => "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\n  export PATH\nfi\nswiftgen config run --config \"$PODS_TARGET_SRCROOT/Resources/swiftgen.yml\""
-  }
-  ]
+  s.source_files = "Sources/**/*"
 
   s.test_spec "Tests" do |test_spec|
     test_spec.requires_app_host = true
