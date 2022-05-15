@@ -10,10 +10,14 @@ import Foundation
 
 extension NSFuture where T == Void {
 
+    /// Дополнительный пустой инициализатор.
     @inlinable public convenience init() {
         self.init(callback: ())
     }
 
+    /// Функция, позволяющий создать `NSFuture` из асинхронного замыкания.
+    /// - Parameters:
+    ///   - task: Замыкание создающее `NSFuture`.
     public static func fromAsyncTask(_ task: (@escaping () -> Void) -> Void) -> NSFuture {
         let (future, callback) = NSFuture.create()
         task { callback(()) }

@@ -12,7 +12,7 @@
 		2F1DD6370C558DEEE6F141FEB4EDCCE7 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B901B771061E06DCA4D6418D839FBF /* Either.swift */; };
 		302429FC70D6DE8AB4CBCFA43219A130 /* Pods-NSFutureDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BC662E10B9447FE4AD72BEB242A194DB /* Pods-NSFutureDemo-dummy.m */; };
 		341C5A54A90630118FD041A990B047ED /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086F32B828531AB7D831586D1F3E9AF9 /* Typealias.swift */; };
-		3C668E7B28315018003DB2FA /* StaticFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C668E7A28315018003DB2FA /* StaticFunc.swift */; };
+		3C668E7B28315018003DB2FA /* Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C668E7A28315018003DB2FA /* Mapping.swift */; };
 		43FAAD0FA0FDC2B28C149AA6C1B7F718 /* NSFuture-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F0EA813F69DF1720570487BD958FC14 /* NSFuture-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6ECA7E10FDF9F4B26D0D2717A2F1CBF3 /* NSFuture+Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA799566E568AB77DF299E7857F6A359 /* NSFuture+Dispatch.swift */; };
 		73A50212767CE30AFE79A057EA90264A /* NSPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB13862D318310461EC00C1BA1912293 /* NSPromise.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		061AC78176F8EAE316150FEDC5E3E3C4 /* NSFuture+Void.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSFuture+Void.swift"; sourceTree = "<group>"; };
 		086F32B828531AB7D831586D1F3E9AF9 /* Typealias.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
-		3C668E7A28315018003DB2FA /* StaticFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticFunc.swift; sourceTree = "<group>"; };
+		3C668E7A28315018003DB2FA /* Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mapping.swift; sourceTree = "<group>"; };
 		3D28BB2DA36A424D2714DC8DE732D854 /* Pods-NSFutureDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NSFutureDemo-frameworks.sh"; sourceTree = "<group>"; };
 		3DEA2D2D77A0941D34EEDD7BE25A4E08 /* NSFuture-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSFuture-dummy.m"; sourceTree = "<group>"; };
 		3E15AF6E3C9BB326770F6CA7AE8FF58F /* Pods-NSFutureDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NSFutureDemo-Info.plist"; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 				AA799566E568AB77DF299E7857F6A359 /* NSFuture+Dispatch.swift */,
 				C72260EB5E22657E9C1D3C802E72382F /* NSFuture+Map.swift */,
 				061AC78176F8EAE316150FEDC5E3E3C4 /* NSFuture+Void.swift */,
-				3C668E7A28315018003DB2FA /* StaticFunc.swift */,
+				3C668E7A28315018003DB2FA /* Mapping.swift */,
 			);
 			path = Future;
 			sourceTree = "<group>";
@@ -295,7 +295,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1320;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -350,7 +350,7 @@
 				1D5F6C32951B57D20DEFC7739A355166 /* NSFuture.swift in Sources */,
 				6ECA7E10FDF9F4B26D0D2717A2F1CBF3 /* NSFuture+Dispatch.swift in Sources */,
 				019BF413BF738232F70EE5865312F131 /* NSFuture+Map.swift in Sources */,
-				3C668E7B28315018003DB2FA /* StaticFunc.swift in Sources */,
+				3C668E7B28315018003DB2FA /* Mapping.swift in Sources */,
 				C8B3166ECB0DDB549BF2C6A9BF9F2E8D /* NSFuture+Void.swift in Sources */,
 				D5A80AA9601359075BFDE9218424ABDB /* NSFuture-dummy.m in Sources */,
 				73A50212767CE30AFE79A057EA90264A /* NSPromise.swift in Sources */,

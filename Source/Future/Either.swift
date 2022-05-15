@@ -13,7 +13,7 @@ public enum Either<L, R> {
     case right(R)
 }
 
-extension Either where L == R {
+public extension Either where L == R {
     
     var value: L {
         switch self {

@@ -10,6 +10,9 @@ import Foundation
 
 extension NSFuture {
 
+    /// Функция, позволяющий преобразовать результат `NSFuture`.
+    /// - Parameters:
+    ///   - transform: Замыкание, принимающее результат предыдущего `NSFuture` и преобразующее в другой тип.
     public func map<U>(_ transform: @escaping (T) -> U) -> NSFuture<U> {
         let (future, callback) = NSFuture<U>.create()
         self.resolved { action in
@@ -18,6 +21,9 @@ extension NSFuture {
         return future
     }
 
+    /// Функция, позволяющий преобразовать все вложенные `NSFuture` у `NSFuture` в единую сущность.
+    /// - Parameters:
+    ///   - transform: Замыкание, принимающее результат предыдущее `NSFuture` и преобразующее в другой тип.
     public func flatMap<U>(_ transform: @escaping (T) -> NSFuture<U>) -> NSFuture<U> {
         let (future, callback) = NSFuture<U>.create()
         self.resolved { result in
@@ -27,27 +33,22 @@ extension NSFuture {
         return future
     }
 
+    /// Функция, позволяющий добавить замыкание, которое выполнится после`NSFuture`.
+    /// - Parameters:
+    ///   - continuation: Замыкание.
     @inlinable public func after<U>(_ continuation: @escaping () -> U) -> NSFuture<U> {
         map { _ in continuation() }
     }
 
+    /// Функция, позволяющий добавить замыкание, которое выполнится после`NSFuture`.
+    /// - Parameters:
+    ///   - continuation: Замыкание создающее `NSFuture`.
     @inlinable public func after<U>(_ continuation: @escaping () -> NSFuture<U>) -> NSFuture<U> {
         flatMap { _ in continuation() }
     }
 
+    /// Функция, позволяющий опустить результирующий тип.
     @inlinable public func dropPayload() -> NSFutureVoid {
         after { () }
-    }
-
-    @inlinable public func forward(to NSPromise: NSPromise<T>) {
-        self.resolved(NSPromise.resolve)
-    }
-
-    @inlinable public func forward(to NSPromise: NSPromise<T>, on queue: DispatchQueue) {
-        self.resolved { action in
-            queue.async {
-                NSPromise.resolve(action)
-            }
-        }
     }
 }

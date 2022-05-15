@@ -10,6 +10,10 @@ import Foundation
 
 extension NSFuture {
 
+    /// Функция, позволяющая отложить выполнение замыкания после определенного промежутка времени.
+    /// - Parameters:
+    ///   - timeInterval: Значение времени, на которое необходимо отложить выполнение.
+    ///   - on: `DispatchQueue` на которой будет исполнено замыкание.
     public func after(timeInterval: Double, on queue: DispatchQueue) -> NSFuture {
         let (future, callback) = NSFuture<T>.create()
         self.resolved { result in
@@ -20,6 +24,9 @@ extension NSFuture {
         return future
     }
 
+    /// Функция, позволяющая перенести выполнение замыкания на другую очередь.
+    /// - Parameters:
+    ///   - to: `DispatchQueue` на которой будет исполнено замыкание.
     public func transfer(to queue: DispatchQueue) -> NSFuture<T> {
         let (future, callback) = NSFuture<T>.create()
         self.resolved { payload in
@@ -30,6 +37,11 @@ extension NSFuture {
         return future
     }
 
+    /// Функция, позволяющая создать `NSFuture` из замыкания.
+    /// - Parameters:
+    ///   - task: Замыкание, которое будет трансформировано в `NSFuture`.
+    ///   - after: Значение времени, на которое необходимо отложить выполнение.
+    ///   - on: `DispatchQueue` на которой будет исполнено замыкание.
     @inlinable public static func fromAsyncTask(
         _ task: @escaping () -> T,
         after interval: TimeInterval,
@@ -38,6 +50,11 @@ extension NSFuture {
         NSFutureVoid().after(timeInterval: interval, on: queue).after(task)
     }
 
+    /// Функция, позволяющая создать `NSFuture` из замыкания, создающего другой экземпляр `NSFuture` .
+    /// - Parameters:
+    ///   - task: Замыкание, которое будет трансформировано в `NSFuture`.
+    ///   - after: Значение времени, на которое необходимо отложить выполнение.
+    ///   - on: `DispatchQueue` на которой будет исполнено замыкание.
     @inlinable public static func fromAsyncTask(
         _ task: @escaping () -> NSFuture<T>,
         after interval: TimeInterval,
@@ -46,12 +63,20 @@ extension NSFuture {
         NSFutureVoid().after(timeInterval: interval, on: queue).after(task)
     }
 
+    /// Функция, позволяющая создать `NSFuture` из замыкания, в котором приходит замыкание.
+    /// - Parameters:
+    ///   - task: Замыкание, которое будет трансформировано в `NSFuture`.
     public static func fromAsyncTask(_ task: (@escaping Action<T>) -> Void) -> NSFuture {
         let (future, callback) = NSFuture<T>.create()
         task(callback)
         return future
     }
 
+    /// Функция, позволяющая создать `NSFuture` из замыкания с разным вариантом исполняемых очередей.
+    /// - Parameters:
+    ///   - task: Замыкание, которое создает `NSFuture`.
+    ///   - executeOn: `DispatchQueue` на которой будет исполнена задача.
+    ///   - resolveOn: `DispatchQueue` на которой будет исполнены замыкания.
     public static func fromAsyncBackgroundTask(
         _ task: @escaping () -> NSFuture<T>,
         executeOn executeQueue: DispatchQueue,
@@ -69,6 +94,11 @@ extension NSFuture {
         return future
     }
 
+    /// Функция, позволяющая создать `NSFuture` из замыкания с разным вариантом исполняемых очередей.
+    /// - Parameters:
+    ///   - task: Замыкание, которое будет трансформировано в `NSFuture`.
+    ///   - executeOn: `DispatchQueue` на которой будет исполнена задача.
+    ///   - resolveOn: `DispatchQueue` на которой будет исполнены замыкания.
     public static func fromBackgroundTask(
         _ task: @escaping () -> T,
         executingOn executeQueue: DispatchQueue,
@@ -84,28 +114,20 @@ extension NSFuture {
         return future
     }
 
-    public static func fromBackgroundTask<U>(
-        _ task: @escaping (U) -> T,
-        _ argument: U,
-        executingOn executeQueue: DispatchQueue,
-        resolvingOn resolveQueue: DispatchQueue
-    ) -> NSFuture<T> {
-        let (future, callback) = NSFuture<T>.create()
-        executeQueue.async {
-            let result = task(argument)
-            resolveQueue.async {
-                callback(result)
-            }
-        }
-        return future
-    }
-
+    /// Функция, позволяющая обернуть замыкание в `NSFuture`.
+    /// - Parameters:
+    ///   - task: Замыкание, которое будет трансформировано в `NSFuture`.
     public static func wrap(_ task: (@escaping Action<T>) -> Void) -> NSFuture<T> {
         let (future, callback) = NSFuture<T>.create()
         task { callback($0) }
         return future
     }
 
+    /// Функция, позволяющая обернуть несколько замыканий замыкание в `NSFuture`.
+    /// - Parameters:
+    ///   - task: Замыкание, которое будет трансформировано в `NSFuture`.
+    ///   - p1: Первый параметр, который будет обернут.
+    ///   - p2: Второй параметр, который будет обернут.
     public static func wrap<T1, T2>(
         _ task: (T1, T2, @escaping Action<T>) -> Void,
         _ p1: T1,
@@ -116,18 +138,14 @@ extension NSFuture {
         return future
     }
 
+    /// Функция, позволяющая добавить обернуть  значение в  в `NSFuture`.
+    /// - Parameters:
+    ///   - task: Замыкание, которое будет трансформировано в `NSFuture`.
+    ///   - p1: Первый параметр, который будет обернут.
+    ///   - p2: Второй параметр, который будет обернут.
     public static func resolved(_ payload: T) -> NSFuture<T> {
         let (future, callback) = NSFuture<T>.create()
         callback(payload)
         return future
-    }
-
-    public func timingOut(
-        after timeout: TimeInterval,
-        on queue: DispatchQueue,
-        withFallback value: T
-    ) -> NSFuture {
-        let fallback = NSFuture(callback: value).after(timeInterval: timeout, on: queue)
-        return first(self, fallback).map { $0.value }
     }
 }

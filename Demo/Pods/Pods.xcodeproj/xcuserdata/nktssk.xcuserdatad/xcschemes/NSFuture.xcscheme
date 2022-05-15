@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1320"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC4A738D8CB2F849BFAFE8B6CB697027"
-               BuildableName = "NSFuture"
+               BuildableName = "NSFuture.framework"
                BlueprintName = "NSFuture"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
