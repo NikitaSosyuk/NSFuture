@@ -1,8 +1,14 @@
 PODS:
   - NSFuture (1.0.0)
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - NSFuture (from `../`)
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 EXTERNAL SOURCES:
   NSFuture:
@@ -10,7 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   NSFuture: 44746e477d4dd961789e4f5b06d897efa22fcc61
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 67c78e4753ac5decf32d57e1e6f8a90b34bb356b
+PODFILE CHECKSUM: cf63acd5fd8bbe864bfba507ac4884f46995ff78
 
 COCOAPODS: 1.11.3

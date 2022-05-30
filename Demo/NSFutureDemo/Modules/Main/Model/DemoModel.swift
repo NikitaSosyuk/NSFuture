@@ -11,7 +11,7 @@ import Foundation
 struct DemoModel: Hashable {
     enum Kind {
         case race
-        case threeTask
+        case order
     }
 
     let kind: Kind

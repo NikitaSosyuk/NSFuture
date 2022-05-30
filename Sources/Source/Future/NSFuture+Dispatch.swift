@@ -138,11 +138,6 @@ extension NSFuture {
         return future
     }
 
-    /// Функция, позволяющая добавить обернуть  значение в  в `NSFuture`.
-    /// - Parameters:
-    ///   - task: Замыкание, которое будет трансформировано в `NSFuture`.
-    ///   - p1: Первый параметр, который будет обернут.
-    ///   - p2: Второй параметр, который будет обернут.
     public static func resolved(_ payload: T) -> NSFuture<T> {
         let (future, callback) = NSFuture<T>.create()
         callback(payload)

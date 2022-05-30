@@ -37,12 +37,12 @@ public func first<T, U>(_ a: NSFuture<T>, _ b: NSFuture<U>) -> NSFuture<Either<T
     let (future, callback) = NSFuture<Either<T, U>>.create()
     var resolved = false
     a.resolved {
-        guard resolved else { return }
+        guard !resolved else { return }
         resolved = true
         callback(.left($0))
     }
     b.resolved {
-        guard resolved else { return }
+        guard !resolved else { return }
         resolved = true
         callback(.right($0))
     }

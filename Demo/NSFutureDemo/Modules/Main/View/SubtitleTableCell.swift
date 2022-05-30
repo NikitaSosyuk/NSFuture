@@ -40,7 +40,7 @@ final class SubtitleTableCell: UITableViewCell {
                 title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
 
                 subtitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-                subtitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+                subtitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
                 subtitle.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 8),
                 subtitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             ]

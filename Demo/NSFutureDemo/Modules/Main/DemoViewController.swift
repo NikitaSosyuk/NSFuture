@@ -8,13 +8,14 @@
 
 import UIKit
 
-class DemoViewController: UIViewController {
+final class DemoViewController: UIViewController {
 
     private enum Section {
         case main
     }
 
     private let tableView = UITableView()
+
 
     private lazy var dataSource = UITableViewDiffableDataSource<Section, DemoModel>(
         tableView: tableView
@@ -62,8 +63,13 @@ class DemoViewController: UIViewController {
                 DemoModel(
                     kind: .race,
                     title: "Гонка между NSFuture",
-                    subtitle: " Отображается первая загруженная картинка"
-                )
+                    subtitle: "Отображается первая загруженная картинка"
+                ),
+                DemoModel(
+                    kind: .order,
+                    title: "Завершение задачи после других",
+                    subtitle: "Появление текста после выполнения других задач"
+                ),
             ],
             toSection: .main
         )
@@ -81,8 +87,8 @@ extension DemoViewController: UITableViewDelegate {
         let viewController: UIViewController
         switch kind {
         case .race:
-            viewController = UIViewController()
-        case .threeTask:
+            viewController = RaceViewController()
+        case .order:
             viewController = UIViewController()
         }
 
